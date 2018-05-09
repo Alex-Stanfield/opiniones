@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html manifest="manifest.appcache">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Opiniones en Vivo</title>
+  <script src="./vue.js"></script>
+  <script src='./afetch.js'></script>
+  <script src='./onload.js'></script>
+  <script src='./calcs.js'></script>  
+  <script src='./misc.js'></script>  
+  <link rel="stylesheet" href="/EnVivo_v10.css">
+  <link rel="stylesheet" href="/toggle-switch.css" />
+</head>
+<body>
+<header>
+  <div style="width:100%;background-color:#302f85;color:white"> 
+    <h1 style="margin:0;"><small><i>Lanzador para </i></small><b>Opiniones en vivo</b></h1>
+  </div>
+</header>
+    
+<main style="margin:8px auto;">  
+  <!-- Status general ------------------------------------------------------------>
+  
+  <div id='freebar' class="stacked-bar-container">
+      <div class="stacked-bar-floated" :class="c_start"   :style="{ 'width': w_start+'%'}"   >Start<br>{{l_start}}</div>
+      <div class="stacked-bar-floated" :class="c_demos"   :style="{ 'width': w_demos+'%'}"   >Demos<br>{{l_demos}}</div>
+      <div class="stacked-bar-floated" :class="c_likerts" :style="{ 'width': w_likerts+'%'}" >Likerts<br>{{l_likerts}}</div>
+      <div class="stacked-bar-floated" :class="c_mchoice" :style="{ 'width': w_mchoice+'%'}" >M C<br>{{l_mchoice}}</div>
+      <div class="stacked-bar-floated" :class="c_xvsy"    :style="{ 'width': w_xvsy+'%'}"    >X-Y<br>{{l_xvsy}}</div>
+      <div class="stacked-bar-floated" :class="c_open"    :style="{ 'width': w_open+'%'}"    >Abiertas<br>{{l_open}}</div>
+      <div class="stacked-bar-last   " :class="c_free"    >Free<br>{{l_free}}</div>
+  </div>
+
+  <div style="float:none; clear:both; display:block;"><br></div>  <!-- Separador para cortar floats y generar gap -->
+  
+  <!-- Navegación ---------------------------------------------------------------->
+  <input id="tab0" type="radio" name="tabs" value="1" onchange="changeTab()"><label class="tabs" for="tab0">Start</label>
+  <input id="tab1" type="radio" name="tabs" value="2" onchange="changeTab()"><label class="tabs" for="tab1">Demográficos</label>
+  <input id="tab2" type="radio" name="tabs" value="3" onchange="changeTab()"><label class="tabs" for="tab2">Likerts</label>
+  <input id="tab3" type="radio" name="tabs" value="4" onchange="changeTab()"><label class="tabs" for="tab3">MChoice</label>
+  <input id="tab4" type="radio" name="tabs" value="5" onchange="changeTab()"><label class="tabs" for="tab4">X vs Y</label>
+  <input id="tab5" type="radio" name="tabs" value="8" onchange="changeTab()"><label class="tabs" for="tab5">Abiertas</label>
+  
+  <input id="tab8" type="radio" name="tabs" value="0" onchange="changeTab()"><label class="tabs" for="tab8">Lanzar</label>
+  <input id="tab9" type="radio" name="tabs" value="0" onchange="changeTab()" checked><label class="tabs" for="tab9"></label>  <!-- icono de Help ver css -->
+
+  <!-- Contenidos ---------------------------------------------------------------->
+  <section id="content0"> <!-- Sesión -------------------------------------------->
+    <h2>Datos de la sesión</h2>
+
+    <p>
+      Ingrese a continuación los datos representativos del evento que está conduciendo.<br>
+      Estos datos serán utilizados para personalizar el reporte generado con los resultados de la votación.
+    </p>
+
+    <div id="s_start">
+      <in-text v-for='i in data'
+              :key='i.vname'
+              v-model='i.valor'
+              iclass='aqua'><b>{{i.campo}}</b></in-text>
+    </div>
+    <br>
+  </section>
+
+  <section id="content1"> <!-- Demográficos -------------------------------------->
+    <h2>Cortes demográficos</h2>    
+    <p>
+      Los cortes demográficos se utilizan para analizar las respuestas en función de los grupos de pertenencia de los participantes.<br><br>
+      Tenga en cuenta que el reporte solo mostrará aperturas demográficas para grupos con 3 o más respuestas. Esto es para garantizar el anonimato en las respuestas.
+    </p>
+
+    <br>
+    <fieldset style="width: 50%">
+      <legend>¿Cuántos cortes demográficos?</legend>
+      <div class="switch-toggle switch-candy">
+        <input id="d_0" name="z_demos" type="radio" v-model='qdemos' value=0><label for="d_0">Ninguno</label>
+        <input id="d_1" name="z_demos" type="radio" v-model='qdemos' value=1><label for="d_1"> 1 </label>
+        <input id="d_2" name="z_demos" type="radio" v-model='qdemos' value=2><label for="d_2"> 2 </label>
+        <a></a>
+      </div>
+    </fieldset>
+
+    <br>
+    <div id="s_demos1" v-if='qdemos>0'>
+      <in-text 
+        :key='data[0].vname'
+        v-model='data[0].valor'
+        iclass='aqua'>
+        <b>{{data[0].campo}}</b>
+      </in-text>
+      <br>
+      <in-text v-for='i in demos1'
+        :key='i.vname'
+        v-model='i.valor'>
+        {{i.campo}}
+      </in-text>      
+    </div>
+    <br>
+    <br>
+    <div id="s_demos2" v-if='qdemos>1'>
+      <in-text 
+        :key='data[1].vname'
+        v-model='data[1].valor'
+        iclass='aqua'>
+        <b>{{data[1].campo}}</b>
+      </in-text>
+      <br>
+      <in-text v-for='i in demos2'
+        :key='i.vname'
+        v-model='i.valor'>
+        {{i.campo}}
+      </in-text>      
+    </div>
+    <br>    
+  </section>
+
+  <section id="content2"> <!-- Likerts  ------------------------------------------>
+    
+    <fieldset style="width: 50%">
+      <legend>Configuración</legend>
+
+      <label class="switch-light switch-candy">
+        <input type="checkbox" v-model='flikerts'>
+        <strong>¿Habrá <b>likerts</b> en esta encuesta?</strong>
+        <span>
+          <span>NO</span>
+          <span>SI</span>
+          <a></a>
+        </span>
+      </label>
+
+      <div id="l_opt" v-if='flikerts'>  
+        <label class="switch-light switch-candy">
+          <input type="checkbox" v-model='fnsnc'>
+          <strong>¿Se habilita el No Sabe / No Contesta?</strong>
+          <span>
+            <span>NO</span>
+            <span>NS/NC habilitado</span>
+            <a></a>
+          </span>
+        </label>
+
+        <label class="switch-light switch-candy">
+          <input type="checkbox" v-model='f15'>
+          <strong>¿Cuál es la escala para los likerts?</strong>
+          <span>
+            <span>1-4</span>
+            <span>1-5</span>
+            <a></a>
+          </span>
+        </label>
+  
+        <P>{{data1[1].campo}}</p>
+        <input type="text" id="l_escala" class="c_input" v-model='data1[1].valor'></input>
+      </div>
+    </fieldset>
+
+    <div id="l_data" v-if='flikerts'>
+      <br>
+      <div id="s_likerts">
+        <in-text 
+        :key='data1[0].vname'
+        v-model='data1[0].valor'
+        iclass='aqua'>
+        <b>{{data1[0].campo}}</b>
+        </in-text>
+        <br>
+        <in-text v-for='i in items1'
+          :key='i.vname'
+          v-model='i.valor'>
+          {{i.campo}}
+        </in-text>              
+      </div>
+      <br>
+
+      <fieldset style="width: 50%">
+        <legend>Configuración</legend>
+        <label class="switch-light switch-candy">
+          <input type="checkbox" v-model='flikerts2'>
+          <strong>¿Habrá <b>likerts</b> adicionales en una <i><b>2da</b></i> encuesta?</strong>
+          <span>
+            <span>NO</span>
+            <span>SI</span>
+            <a></a>
+          </span>
+        </label>
+      </fieldset>
+
+      <div id="l2_data" v-if='flikerts2'>
+        <br>
+        <in-text 
+        :key='data2[0].vname'
+        v-model='data2[0].valor'
+        iclass='aqua'>
+        <b>{{data2[0].campo}}</b>
+        </in-text>
+        <br>
+        <in-text v-for='i in items2'
+          :key='i.vname'
+          v-model='i.valor'>
+          {{i.campo}}
+        </in-text>              
+        <br>
+      </div>
+    </div>
+  </section>
+    
+  <section id="content3"> <!-- MChoice  ------------------------------------------>
+    <fieldset style="width: 50%">
+      <legend>Configuración</legend>
+      <label class="switch-light switch-candy">
+        <input type="checkbox" v-model='fmchoice'>
+        <strong>¿Habrá <b>Multiple Choice</b> en esta encuesta?</strong>
+        <span>
+          <span>NO</span>
+          <span>SI</span>
+          <a></a>
+        </span>
+      </label>
+    </fieldset>
+    <div id="m_data" v-if='fmchoice'>
+      <br>
+      <in-text 
+      :key='data[0].vname'
+      v-model='data[0].valor'
+      iclass='aqua'>
+      <b>{{data[0].campo}}</b>
+      </in-text>
+      <br>
+      <in-mchoice v-for='(i, index) in items'
+        :key='i.vname'
+        v-model='items[index]'>
+      </in-mchoice>
+      <br>
+    </div>
+  </section>
+    
+  <section id="content4"> <!-- X vs Y -------------------------------------------->
+    <fieldset style="width: 50%">
+      <legend>Configuración</legend>
+      <label class="switch-light switch-candy">
+        <input type="checkbox" v-model='fxvsy'>
+        <strong>¿Habrá <b>X vs Y</b> en esta encuesta?</strong>
+        <span>
+          <span>NO</span>
+          <span>SI</span>
+          <a></a>
+        </span>
+      </label>
+    </fieldset>
+    <div id="x_data" v-if='fxvsy'>
+      <br>
+      <in-text v-for='i in data'
+        :key='i.vname'
+        v-model='i.valor'
+        iclass='aqua'>
+      <b>{{i.campo}}</b>
+      </in-text>
+      <br>
+      <b><p>Criterios a evaluar</p></b>
+      <in-text v-for='i in items'
+        :key='i.vname'
+        v-model='i.valor'>
+        {{i.campo}}
+      </in-text>              
+      <br>
+    </div>
+  </section>
+
+  <section id="content5"> <!-- Comentarios  -------------------------------------->
+    <fieldset style="width: 50%">
+      <legend>Configuración</legend>
+      <label class="switch-light switch-candy">
+        <input type="checkbox" v-model='fopen'>
+        <strong>¿Habrá <b>preguntas abiertas</b> en esta encuesta?</strong>
+        <span>
+          <span>NO</span>
+          <span>SI</span>
+          <a></a>
+        </span>
+      </label>
+    </fieldset>
+    <div id="o_data" v-if='fopen'>
+      <br>
+      <in-text v-for='i in data'
+        :key='i.vname'
+        v-model='i.valor'
+        iclass='aqua'>
+      <b>{{i.campo}}</b>
+      </in-text>
+      <br>
+      <b><p>Pregunta disparadora</p></b>
+      <in-text v-for='i in items'
+        :key='i.vname'
+        v-model='i.valor'>
+        {{i.campo}}
+      </in-text>              
+      <br>
+    </div>
+  </section>
+
+  <section id="content8"> <!-- Lanza  -------------------------------------------->
+    <fieldset style="width: 50%">
+      <legend>Configuración</legend>
+      <P>¿Qué medición es la que está por lanzar? </p>
+      <div class="switch-toggle switch-candy">
+        <input id="l_1ra" name="z_lanzar" type="radio"  v-model='AntDes' value='1'><label for="l_1ra">Primera / Unica</label>
+        <input id="l_2da" name="z_lanzar" type="radio"  v-model='AntDes' value='2'><label for="l_2da">Segunda</label>
+        <a></a>
+      </div>
+    </fieldset>
+    <br>
+    <p>
+      Ingrese un identicador único para este conjunto de preguntas (<i>Sesión</i>).<br>
+      Si va a hacer dos mediciones, para compararlas, <b>debe</b> usar el mismo identificador para ambas.<br>
+      Puede ingresar un valor directamente o bien utilizar el botón más abajo para generarlo automáticamente.
+    </p>
+    <button onclick="generarSesion()" class="boton star" style="margin-left:0">Generar sesión</button>
+    <in-text v-model='session' iclass='aqua'>
+      <b>Sesión</b>
+    </in-text>
+
+    <div>
+      <br>
+      <br>
+      <button onclick="lanzar()" class="boton lanza hcenter">Lanzar</button>
+      <br>
+      <a id="shortURL" class="hcenter short-url"></a>
+      <br>
+      <img id="QRcode" class="hcenter qrcode"></img>
+    </div>
+  </section>
+
+  <section id="content9"> <!-- HELP ---------------------------------------------->
+    <h2>Instrucciones de uso</h2>
+    <p>
+      Aca la ayuda.
+
+      La idea es abrir en esta página para facilitar el uso por parte de los consultores.
+
+    </p>
+  </section>
+
+  <!-- SECCION INFERIOR ---------------------------------------------------------------------------->
+  
+  <div style="overflow: auto;">
+    <!-- <label for="inputfn">file dialog</label> -->
+    <!-- <input  id="inputfn" type="file" style="position: fixed; top: -100em">    -->
+    <!-- <button id="b_load" onclick="loadJSON()" class="boton add" style="float:left; margin-left: 0;">Load</button> -->
+    <label for="inputfn" class="boton add" style="float: left; margin-left: 0;">Load</label>
+    <input  id="inputfn" type="file" oninput="handleFiles(this.files)" style="position: absolute; top:-100em;" accept="application/json">
+    <span>&nbsp;&nbsp;</span>
+    <button id="b_save" onclick="saveJSON()" class="boton save" style="float:left;">Save</button>
+    <button id="b_next" onclick="nextTab()"  class="boton next" style="float:right;">Next</button>
+  </div>
+</main>
+
+<footer> <!-- footer identico a la pagina de la encuesta -------------------------->
+  <div style="margin:0px 0 0 0;width:100%;background-color:#302f85;min-height:calc(35x + 0.0023 * (100vw - 400px));position:relative">
+    <img style="height:Calc(20px + 0.0099 * ( 100vw - 400px ));top:50%;position:absolute;right:5px;-ms-transform:translate(0,-50%);transform:translate(0,-50%)" src="./asertys_logo_blanco.png"/>
+    <p style="padding:5px 85px 5px 5px;font-family:Arial Narrow;color:white;font-size:Calc(8pt + 0.0023 * ( 100vw - 400px ));-webkit-margin-after: 0;">Opiniones en vivo ©<small><br>Todos los derechos reservados</small></p>
+  </div>
+</footer>
+</body>
+</html>

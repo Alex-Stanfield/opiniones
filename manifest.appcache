@@ -1,0 +1,16 @@
+CACHE MANIFEST 
+# v03
+
+NETWORK: 
+/
+/Index.html
+*
+
+CACHE:
+vue.js
+toggle-switch.css
+asertys_logo_blanco.png
+https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN7rgOUuhp.woff2
+https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UNirkOUuhp.woff2
+https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFVZ0b.woff2

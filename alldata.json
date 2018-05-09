@@ -1,0 +1,211 @@
+{
+"s_start":{
+    "data":[
+        {"vname":"C",       "campo":"Cliente" ,     "valor":"AESA"},
+        {"vname":"Event",   "campo":"Evento",       "valor":"Workshop con la gerencia"},
+        {"vname":"Eval",    "campo":"Evaluación",   "valor":"¿Cómo vinimos?"}
+    ]
+},
+
+"s_demos":{
+    "qdemos":"2",
+    "data":[
+        {"vname":"D1T", "campo": "1er Corte", "valor":"Estrato"},
+        {"vname":"D2T", "campo": "2do Corte", "valor":"Area"}
+    ],
+    "demos1":[
+        {"vname":"D1L01", "campo": "Opción  1", "valor":"Director"}, 
+        {"vname":"D1L02", "campo": "2", "valor":"Gerente"}, 
+        {"vname":"D1L03", "campo": "3", "valor":"Coordinador"}, 
+        {"vname":"D1L04", "campo": "4", "valor":"Colaborador"}, 
+        {"vname":"D1L05", "campo": "5", "valor":""}, 
+        {"vname":"D1L06", "campo": "6", "valor":""}, 
+        {"vname":"D1L07", "campo": "7", "valor":""}, 
+        {"vname":"D1L08", "campo": "8", "valor":""}, 
+        {"vname":"D1L09", "campo": "9", "valor":""}, 
+        {"vname":"D1L10", "campo": "10", "valor":""}, 
+        {"vname":"D1L11", "campo": "11", "valor":""}, 
+        {"vname":"D1L12", "campo": "12", "valor":""}, 
+        {"vname":"D1L13", "campo": "13", "valor":""}, 
+        {"vname":"D1L14", "campo": "14", "valor":""}, 
+        {"vname":"D1L15", "campo": "15", "valor":""}, 
+        {"vname":"D1L16", "campo": "16", "valor":""}, 
+        {"vname":"D1L17", "campo": "17", "valor":""}, 
+        {"vname":"D1L18", "campo": "18", "valor":""}, 
+        {"vname":"D1L19", "campo": "19", "valor":""}, 
+        {"vname":"D1L20", "campo": "20", "valor":""}
+    ],
+    "demos2": [
+        {"vname":"D2L01", "campo": "Opción  1", "valor":"Dirección"}, 
+        {"vname":"D2L02", "campo": "2", "valor":"Comercialización"}, 
+        {"vname":"D2L03", "campo": "3", "valor":"Producción"}, 
+        {"vname":"D2L04", "campo": "4", "valor":"Administración"}, 
+        {"vname":"D2L05", "campo": "5", "valor":"Tecnología"}, 
+        {"vname":"D2L06", "campo": "6", "valor":""}, 
+        {"vname":"D2L07", "campo": "7", "valor":""}, 
+        {"vname":"D2L08", "campo": "8", "valor":""}, 
+        {"vname":"D2L09", "campo": "9", "valor":""}, 
+        {"vname":"D2L10", "campo": "10", "valor":""}, 
+        {"vname":"D2L11", "campo": "11", "valor":""}, 
+        {"vname":"D2L12", "campo": "12", "valor":""}, 
+        {"vname":"D2L13", "campo": "13", "valor":""}, 
+        {"vname":"D2L14", "campo": "14", "valor":""}, 
+        {"vname":"D2L15", "campo": "15", "valor":""}, 
+        {"vname":"D2L16", "campo": "16", "valor":""}, 
+        {"vname":"D2L17", "campo": "17", "valor":""}, 
+        {"vname":"D2L18", "campo": "18", "valor":""}, 
+        {"vname":"D2L19", "campo": "19", "valor":""}, 
+        {"vname":"D2L20", "campo": "20", "valor":""}
+    ]
+},
+
+"s_likerts":{
+    "flikerts":false,
+    "f15":true,
+    "fnsnc":true,
+    "data1":[
+        {"vname":"L" , "campo": "Introducción", "valor":""},
+        {"vname":"LS", "campo": "Texto para la escala", "valor":"Escala: 1=Nada de acuerdo ↔ 5=Totalmente de acuerdo"}
+    ],
+    "items1":[
+        {"vname":"L0", "campo": " 1", "valor":""}, 
+        {"vname":"L1", "campo": " 2", "valor":""}, 
+        {"vname":"L2", "campo": " 3", "valor":""}, 
+        {"vname":"L3", "campo": " 4", "valor":""}, 
+        {"vname":"L4", "campo": " 5", "valor":""}, 
+        {"vname":"L5", "campo": " 6", "valor":""}, 
+        {"vname":"L6", "campo": " 7", "valor":""}, 
+        {"vname":"L7", "campo": " 8", "valor":""}, 
+        {"vname":"L8", "campo": " 9", "valor":""}, 
+        {"vname":"L9", "campo": "10", "valor":""}, 
+        {"vname":"LA", "campo": "11", "valor":""}, 
+        {"vname":"LB", "campo": "12", "valor":""}, 
+        {"vname":"LC", "campo": "13", "valor":""}, 
+        {"vname":"LD", "campo": "14", "valor":""}, 
+        {"vname":"LE", "campo": "15", "valor":""}, 
+        {"vname":"LF", "campo": "16", "valor":""}, 
+        {"vname":"LG", "campo": "17", "valor":""}, 
+        {"vname":"LH", "campo": "18", "valor":""}, 
+        {"vname":"LI", "campo": "19", "valor":""}, 
+        {"vname":"LJ", "campo": "20", "valor":""}
+    ],
+    "flikerts2":false,
+    "data2":[
+        {"vname":"K", "campo": "Introducción", "valor":""}
+    ],
+    "items2":[
+        {"vname":"K0", "campo": " 1", "valor":""}, 
+        {"vname":"K1", "campo": " 2", "valor":""}, 
+        {"vname":"K2", "campo": " 3", "valor":""}, 
+        {"vname":"K3", "campo": " 4", "valor":""}, 
+        {"vname":"K4", "campo": " 5", "valor":""}, 
+        {"vname":"K5", "campo": " 6", "valor":""}, 
+        {"vname":"K6", "campo": " 7", "valor":""}, 
+        {"vname":"K7", "campo": " 8", "valor":""}, 
+        {"vname":"K8", "campo": " 9", "valor":""}, 
+        {"vname":"K9", "campo": "10", "valor":""}, 
+        {"vname":"KA", "campo": "11", "valor":""}, 
+        {"vname":"KB", "campo": "12", "valor":""}, 
+        {"vname":"KC", "campo": "13", "valor":""}, 
+        {"vname":"KD", "campo": "14", "valor":""}, 
+        {"vname":"KE", "campo": "15", "valor":""}, 
+        {"vname":"KF", "campo": "16", "valor":""}, 
+        {"vname":"KG", "campo": "17", "valor":""}, 
+        {"vname":"KH", "campo": "18", "valor":""}, 
+        {"vname":"KI", "campo": "19", "valor":""}, 
+        {"vname":"KJ", "campo": "20", "valor":""}
+    ]
+},
+
+"s_mchoice":{
+    "fmchoice":false,
+    "data":[
+        {"vname":"Mintro", "campo": "Introducción", "valor":""}
+    ],
+    "items":[
+        {"vname":"M1", "campo": "Multiple #1", "valor":"", "opt":[
+            {"vname":"M1L1", "campo":"Opción: 1", "valor":""},
+            {"vname":"M1L2", "campo":"2", "valor":""},
+            {"vname":"M1L3", "campo":"3", "valor":""},
+            {"vname":"M1L4", "campo":"4", "valor":""},
+            {"vname":"M1L5", "campo":"5", "valor":""},
+            {"vname":"M1L6", "campo":"6 (exclusiva)", "valor":""}
+        ]}, 
+        {"vname":"M2", "campo": "Multiple #2", "valor":"", "opt":[
+            {"vname":"M2L1", "campo":"Opción: 1", "valor":""},
+            {"vname":"M2L2", "campo":"2", "valor":""},
+            {"vname":"M2L3", "campo":"3", "valor":""},
+            {"vname":"M2L4", "campo":"4", "valor":""},
+            {"vname":"M2L5", "campo":"5", "valor":""},
+            {"vname":"M2L6", "campo":"6 (exclusiva)", "valor":""}
+        ]}, 
+        {"vname":"M3", "campo": "Multiple #3", "valor":"", "opt":[
+            {"vname":"M3L1", "campo":"Opción: 1", "valor":""},
+            {"vname":"M3L2", "campo":"2", "valor":""},
+            {"vname":"M3L3", "campo":"3", "valor":""},
+            {"vname":"M3L4", "campo":"4", "valor":""},
+            {"vname":"M3L5", "campo":"5", "valor":""},
+            {"vname":"M3L6", "campo":"6 (exclusiva)", "valor":""}
+        ]}, 
+        {"vname":"M4", "campo": "Multiple #4", "valor":"", "opt":[
+            {"vname":"M4L1", "campo":"Opción: 1", "valor":""},
+            {"vname":"M4L2", "campo":"2", "valor":""},
+            {"vname":"M4L3", "campo":"3", "valor":""},
+            {"vname":"M4L4", "campo":"4", "valor":""},
+            {"vname":"M4L5", "campo":"5", "valor":""},
+            {"vname":"M4L6", "campo":"6 (exclusiva)", "valor":""}
+        ]}, 
+        {"vname":"M5", "campo": "Multiple #5", "valor":"", "opt":[
+            {"vname":"M5L1", "campo":"Opción: 1", "valor":""},
+            {"vname":"M5L2", "campo":"2", "valor":""},
+            {"vname":"M5L3", "campo":"3", "valor":""},
+            {"vname":"M5L4", "campo":"4", "valor":""},
+            {"vname":"M5L5", "campo":"5", "valor":""},
+            {"vname":"M5L6", "campo":"6 (exclusiva)", "valor":""}
+        ]}
+    ]
+},
+
+"s_xvsy":{
+    "fxvsy":false,
+    "data":[
+        {"vname":"Xintro",      "campo": "Introducción", "valor":""},
+        {"vname":"Escala_XY",   "campo": "Texto escala", "valor":"Escala:  (1=bajo  ↔  5=alto)"},
+        {"vname":"Label_Y",     "campo": "Eje Y (vertical)", "valor":"Prioridad"},
+        {"vname":"Label_X",     "campo": "Eje X (horizontal)", "valor":"Desarrollo"}
+    ],
+    "items":[
+        {"vname":"X01", "campo": " 1", "valor":""}, 
+        {"vname":"X02", "campo": " 2", "valor":""}, 
+        {"vname":"X03", "campo": " 3", "valor":""}, 
+        {"vname":"X04", "campo": " 4", "valor":""}, 
+        {"vname":"X05", "campo": " 5", "valor":""}, 
+        {"vname":"X06", "campo": " 6", "valor":""}, 
+        {"vname":"X07", "campo": " 7", "valor":""}, 
+        {"vname":"X08", "campo": " 8", "valor":""}, 
+        {"vname":"X09", "campo": " 9", "valor":""}, 
+        {"vname":"X10", "campo": "10", "valor":""}
+    ]
+},
+
+"s_open":{
+    "fopen":false,
+    "data":[
+        {"vname":"OIntro",      "campo": "Introducción", "valor":""}
+    ],
+    "items":[
+        {"vname":"OE01", "campo": " 1", "valor":""}, 
+        {"vname":"OE02", "campo": " 2", "valor":""}, 
+        {"vname":"OE03", "campo": " 3", "valor":""}, 
+        {"vname":"OE04", "campo": " 4", "valor":""}, 
+        {"vname":"OE05", "campo": " 5", "valor":""}
+    ]
+},
+
+"baseurl": "https://www.snapsurveys.com/wh/s.asp?k=152582462629",
+"session": "",
+"AntDes": "1",
+"labelNSNC": "&CL6=NS/NC",
+"shorturl":""
+
+}
