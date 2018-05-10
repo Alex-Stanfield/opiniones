@@ -1,7 +1,8 @@
 CACHE MANIFEST 
-# v07
+# v08
 
 NETWORK: 
+* 
 
 CACHE:
 ./onload.js

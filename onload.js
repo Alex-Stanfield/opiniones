@@ -1,4 +1,4 @@
-/* onload script para Opniones en Vivo */
+/* onload script para Opiniones en Vivo */
 alldata = [];
 
 window.onload = function() {
@@ -7,7 +7,7 @@ window.onload = function() {
   afetch('alldata.json')
   .then(start => {
     alldata = start;
-    console.log('alldata is', alldata);
+    //console.log('alldata is', alldata);
 
     Vue.component('in-text', {
         inheritAttrs: false,
@@ -105,38 +105,30 @@ window.onload = function() {
       l_mchoice:0,    w_mchoice:5,  c_mchoice:'',
       l_xvsy:0,       w_xvsy:5,     c_xvsy:'',
       l_open:0,       w_open:5,     c_open:'',
-      l_free:0, c_free:''
-  }
+      l_free:0, c_free:'',
+      errmsg:''
+    }
   
-  vm_free = new Vue({
-      el: '#freebar',
-      data: freebar /* d_start*/
+    vm_free = new Vue({
+        el: '#freebar',
+        data: freebar /* d_start*/
     });
   
-/*
-  window.onscroll = function() {myScrollFix()};
-
-  header = document.getElementById("freebar");
-  sticky = header.offsetTop;
-  
-  function myScrollFix() {
-    if (window.pageYOffset >= sticky) {
-      header.classList.add("sticky");
-    } else {
-      header.classList.remove("sticky");
-    }
-  }    
-*/
-
   })
-  .catch(error => console.log('error is', error));
+  .catch(error => errmsg('Error: '+ error));
 
-/*  d_start = { data: [
-    {id:1, name:'Cliente'     , val: 'Cliente del workshop...'    , vname:'C'},
-    {id:2, name:'Evento'      , val: 'El evento en cuestión...'   , vname:'Event'},
-    {id:3, name:'Evaluación'  , val: 'Evaluaremos...'             , vname:'Eval'}
-  ]};
-*/
+  
+  /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+  /* init general                                                    */
+  /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+  timer = setInterval(libres, 200);
 
 
+  /*-----------------------------------------------------------------*/
+  /* Evitar F5                                                       */
+  window.onbeforeunload = function() {
+      return "Si no grabó los datos se perderán las modificaciones!";
+  }
+
+  changeTab(); //init class para freebar
 } /* window.onload */

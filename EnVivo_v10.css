@@ -379,8 +379,6 @@ input.in-text {
   font-size: smaller;
   text-align: center;
   overflow: hidden;
-  position: sticky;
-  top: 0;
   z-index: 10;
 }
 .stacked-bar-floated {
@@ -410,6 +408,12 @@ input.in-text {
 
 .off {
   display: none;
+}
+
+.sticky-on {
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .warn {
@@ -445,4 +449,21 @@ input.in-text {
 .qrcode {
   width: 50vw;
   max-width: 1024px;
+}
+
+.errmsg {
+  background: red;
+  color: white;
+  text-align: center;
+  width:100%;
+  display: block;
+  z-index: 10;
+}
+
+#content9 li {
+  margin-top: 1.5ch;
+}
+
+#content9 li li {
+  margin-top: 0.4ch;
 }

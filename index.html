@@ -3,16 +3,17 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Opiniones en Vivo</title>
-  <script src="./vue.min.js"></script>
+  <script src="./vue.js"></script>
   <script src='./afetch.js'></script>
-  <script src='./onload.js'></script>
   <script src='./calcs.js'></script>  
   <script src='./misc.js'></script>  
+
+  <script src='./onload.js'></script>
+
   <!-- <link rel="stylesheet" href="./font-awesome.min.css"> -->
   
   <link rel="stylesheet" href="./EnVivo_v10.css">
   <link rel="stylesheet" href="./toggle-switch.css" />
-
 </head>
 <body>
 <header>
@@ -23,19 +24,22 @@
     
 <main style="margin:8px auto;">  
   <!-- Status general ------------------------------------------------------------>
-  
-  <div id='freebar' class="stacked-bar-container" v-cloak>
+  <div id='freebar' v-cloak>
+    <div id="stacker" class="stacked-bar-container">
       <div class="stacked-bar-floated" :class="c_start"   :style="{ 'width': w_start+'%'}"   >Start<br>{{l_start}}</div>
       <div class="stacked-bar-floated" :class="c_demos"   :style="{ 'width': w_demos+'%'}"   >Demos<br>{{l_demos}}</div>
       <div class="stacked-bar-floated" :class="c_likerts" :style="{ 'width': w_likerts+'%'}" >Likerts<br>{{l_likerts}}</div>
       <div class="stacked-bar-floated" :class="c_mchoice" :style="{ 'width': w_mchoice+'%'}" >M C<br>{{l_mchoice}}</div>
       <div class="stacked-bar-floated" :class="c_xvsy"    :style="{ 'width': w_xvsy+'%'}"    >X-Y<br>{{l_xvsy}}</div>
       <div class="stacked-bar-floated" :class="c_open"    :style="{ 'width': w_open+'%'}"    >Abiertas<br>{{l_open}}</div>
-      <div class="stacked-bar-last   " :class="c_free"    >Free<br>{{l_free}}</div>
+      <div class="stacked-bar-last   " :class="c_free">Free<br>{{l_free}}</div>
+    </div>
+    <div style="float:none; clear:both; display:block; padding-top: 0.5ch; padding-bottom: 0.5ch;">
+      <!-- br -->
+      <span id="errmsg" class="errmsg">{{errmsg}}</span>
+    </div>  <!-- Separador para cortar floats y generar gap -->
   </div>
 
-  <div style="float:none; clear:both; display:block;"><br></div>  <!-- Separador para cortar floats y generar gap -->
-  
   <!-- Navegación ---------------------------------------------------------------->
   <input id="tab0" type="radio" name="tabs" value="1" onchange="changeTab()"><label class="tabs" for="tab0">Start</label>
   <input id="tab1" type="radio" name="tabs" value="2" onchange="changeTab()"><label class="tabs" for="tab1">Demográficos</label>
@@ -319,7 +323,7 @@
       Puede ingresar un valor directamente o bien utilizar el botón más abajo para generarlo automáticamente.
     </p>
     <button onclick="generarSesion()" class="boton star" style="margin-left:0">Generar sesión</button>
-    <in-text v-model='session' iclass='aqua'>
+    <in-text v-model='sesion' iclass='aqua'>
       <b>Sesión</b>
     </in-text>
 
@@ -328,7 +332,7 @@
       <br>
       <button onclick="lanzar()" class="boton lanza hcenter">Lanzar</button>
       <br>
-      <a id="shortURL" class="hcenter short-url"></a>
+      <a id="shortURL" class="hcenter short-url" target="_blank"></a>
       <br>
       <img id="QRcode" class="hcenter qrcode"></img>
     </div>
@@ -336,11 +340,39 @@
 
   <section id="content9"> <!-- HELP ---------------------------------------------->
     <h2>Instrucciones de uso</h2>
+    <p>Esta página le permite configurar las preguntas a realizar durante un workshop.<br><br>
+      Procedimiento general de uso:</p>
+    <ol>
+      <li>Cargar los datos generales de la encuesta en la solapa <b>Start</b>
+        <ul>
+          <li>Cliente</li>
+          <li>Evento</li>
+          <li>Evaluación (opcional - es un título general para esta medición)</li>
+        </ul></li>
+      <li>Cargar los datos demográficos (opcional) en la solapa <b>Demográficos</b></li>
+      <li>Usar las solapas correspondientes a cada tipo de pregunta: 
+        <ul>
+          <li><b>Likerts</b> - para evaluar una puntuación por pregunta.</li>
+          <li><b>MChoice</b> (Multiple Choice) - para preguntas con múltiples respuestas por preguntas.</li>
+          <li><b>X vs Y</b> - ara armar un cuadrante con dos valoraciones por pregunta/tema.</li>
+          <li><b>Abiertas</b> - para preguntas con respuesta de texto.</li>
+        </ul>
+        Cada sección puede habilitarse o excluirse desde la misma solapa.
+      </li>
+      <li>En la solapa <b>Lanzar</b>
+        <ul>
+          <li>Definir un valor en el campo <b>Sesión</b><br>
+            Este valor es clave para generar el reporte. <b>DEBE ser único para cada ronda de preguntas relacionadas</b>
+          </li>
+          <li>Identificar si esta es la primera o segunda medición para la sesión</li>
+          <li>Finalmente usando boton <b>Lanzar</b> generará una dirección de internet y un código QR para distribuir y/o proyectar a la audiencia participante de la encuesta.</li>
+        </ul>
+      </li>     
+    </ol>
     <p>
-      Aca la ayuda.
-
-      La idea es abrir en esta página para facilitar el uso por parte de los consultores.
-
+      La barra superior que aparece en todas las solapas excepto la de lanzar indica cuantos caracteres se están usando del máximo permitido en el sistema.<br>
+      Sobre la derecha, en color, se indican los disponibles/faltantes.<br>
+      Tenga en cuenta que los símbolos y caracteres acentuados utilizan más de un caracter (internamente).
     </p>
   </section>
 

@@ -20,7 +20,7 @@ function pl_general() {
     }
 
     pls.general = alldata.baseurl +
-                '&Sesion=' + encodeURIComponent(alldata.session) +
+                '&Sesion=' + encodeURIComponent(alldata.sesion) +
                 '&AntDes=' + alldata.AntDes +
                 pl;
     pls._general = pls.general.replace(/%20/g, "+"); //encodeURIComponent(pls.general).replace(/%20/g, "+");
@@ -219,11 +219,3 @@ function libres() {
     pltim = performance.now() - t0;
     return 2048 - pls.longurl.length;
 }
-
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-/* init general                                                    */
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-timer = setInterval(libres, 200);
-
-
- 

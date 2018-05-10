@@ -27,15 +27,21 @@ function call_isgd(url){
 /***************************************************************************************/
 /* actualiza los elementos de shortURL y el QR code                                    */
 /***************************************************************************************/
-function showQR() {
+function showQR(msg) {
 
-    if (alldata.shorturl.indexOf('Error: ') == -1) {
-        document.getElementById("shortURL").href = alldata.shorturl;
-        document.getElementById("shortURL").innerHTML = alldata.shorturl;
-        document.getElementById('QRcode').src = 'https://chart.googleapis.com/chart?chs=400x400&cht=qr&chld=Q|0&chl=' + encodeURIComponent(alldata.shorturl);
+    msg = (msg == undefined) ? alldata.shorturl : msg;
+
+    if (msg.indexOf('Error: ') == -1) {
+        //document.getElementById("errmsg").innerHTML = '';
+        reseterr();
+        document.getElementById("shortURL").href = msg;
+        document.getElementById("shortURL").innerHTML = msg;
+        document.getElementById('QRcode').src = 'https://chart.googleapis.com/chart?chs=400x400&cht=qr&chld=Q|0&chl=' + encodeURIComponent(msg);
     } else {
+        //document.getElementById("errmsg").innerHTML = '&nbsp;' + msg + '&nbsp;';
+        freebar.errmsg = msg;
         document.getElementById("shortURL").href = '';
-        document.getElementById("shortURL").innerHTML = alldata.shorturl;
+        document.getElementById("shortURL").innerHTML = '';
         document.getElementById('QRcode').src = '';
     }
 }
@@ -77,8 +83,8 @@ function handleFiles(files) {
                             showQR();
                         }
                     } else {
-                        //signal error
-                        alert("Archivo inválido!!! \n" + "Por favor elija uno exportado previamente por esta aplicación\n")
+                        //signal error (alert)
+                        errmsg("Archivo inválido!!! \n" + "Por favor elija uno exportado previamente por esta aplicación\n")
                     }
                 } catch(e) {
                     alert(e); // error in the above string (in this case, yes)!
@@ -147,9 +153,9 @@ function nextTab() {
 function changeTab() {
     var t = document.getElementById("tab8");
     if (t.checked) {
-        document.getElementById("freebar").classList.add("off");
+        document.getElementById("freebar").classList.remove("sticky-on");
     } else {
-        document.getElementById("freebar").classList.remove("off");
+        document.getElementById("freebar").classList.add("sticky-on");
     }
 }
 
@@ -157,9 +163,29 @@ function changeTab() {
 function generarSesion() {
     var rn = new Date();
 
-    alldata.session = rn.toISOString().replace(/[-:.Z]/g,'').replace('T', '-');
+    alldata.sesion = rn.toISOString().replace(/[-:.Z]/g,'').replace('T', '-');
 }
 
 function lanzar() {
-    call_isgd( encodeURIComponent(pls.longurl) );
+    if (freebar.l_free >= 0) {
+        if (alldata.s_start.data[0].valor == '' ||
+            alldata.s_start.data[1].valor == '' ||
+            alldata.sesion == '') {
+            errmsg('"Cliente", "Evento" y "Sesión" <b>NO</b> pueden estar en blanco');
+        } else {
+            reseterr();
+            call_isgd( encodeURIComponent(pls.longurl) );
+        }
+    } else {
+        errmsg('No puede lanzar la encuesta por exceso de caracteres. El casillero "Libres" del indicador de ocupación debe ser positivo');
+    }
+}
+
+function errmsg(msg) {
+    alert(msg);
+    freebar.errmsg = msg;
+}
+
+function reseterr() {
+    freebar.errmsg = ' ';
 }
