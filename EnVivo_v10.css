@@ -10,6 +10,8 @@
 }
 */
 
+[v-cloak] {display: none}
+
 html, body {
  height: 90vh;
 }
