@@ -15,5 +15,5 @@ CACHE:
 ./toggle-switch.css
 ./asertys_logo_blanco.png
 ./favicon.ico
-./font-awesome.min.css
+# # ./font-awesome.min.css
 # # https://fonts.googleapis.com/css
