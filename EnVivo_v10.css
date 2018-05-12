@@ -387,7 +387,7 @@ input.in-text {
   padding: 4px 2px;
   border-right:  thin solid white; /*2px solid #555;*/
   box-sizing: inherit;
-  color: lightgreen; 
+  color: lightblue; 
   background: #111; 
 }
 
@@ -399,7 +399,7 @@ input.in-text {
   /* border-top-right-radius: 0px;
   border-bottom-right-radius: 5px; */
 
-  background: lightgreen; 
+  background: lightblue; 
   color: black; 
   border:0;
   box-sizing: inherit;
@@ -466,4 +466,22 @@ input.in-text {
 
 #content9 li li {
   margin-top: 0.4ch;
+}
+
+#d_0:checked+label,
+#d_1:checked+label,
+#d_2:checked+label,
+#l_1ra:checked+label,
+#l_2da:checked+label {
+  background-color: #0E88B1;
+  font-weight:600;
+  color: white;
+}
+
+#d_0:not(checked)+label,
+#d_1:not(checked)+label,
+#d_2:not(checked)+label,
+#l_1ra:not(checked)+label, 
+#l_2da:not(checked)+label, {
+  color: lightgrey;
 }

@@ -1,5 +1,6 @@
 CACHE MANIFEST 
-# v08
+# 2015-05-12
+# v12
 
 NETWORK: 
 * 
@@ -16,5 +17,11 @@ CACHE:
 ./toggle-switch.css
 ./asertys_logo_blanco.png
 ./favicon.ico
+
 # # ./font-awesome.min.css
+https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot
+
 # # https://fonts.googleapis.com/css
+https://fonts.googleapis.com/css
+https://fonts.gstatic.com/s/opensans/

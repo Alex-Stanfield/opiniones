@@ -26,13 +26,13 @@
   <!-- Status general ------------------------------------------------------------>
   <div id='freebar' v-cloak>
     <div id="stacker" class="stacked-bar-container">
-      <div class="stacked-bar-floated" :class="c_start"   :style="{ 'width': w_start+'%'}"   >Start<br>{{l_start}}</div>
+      <div class="stacked-bar-floated" :class="c_start"   :style="{ 'width': w_start+'%'}"   >Inicio<br>{{l_start}}</div>
       <div class="stacked-bar-floated" :class="c_demos"   :style="{ 'width': w_demos+'%'}"   >Demos<br>{{l_demos}}</div>
       <div class="stacked-bar-floated" :class="c_likerts" :style="{ 'width': w_likerts+'%'}" >Likerts<br>{{l_likerts}}</div>
       <div class="stacked-bar-floated" :class="c_mchoice" :style="{ 'width': w_mchoice+'%'}" >M C<br>{{l_mchoice}}</div>
       <div class="stacked-bar-floated" :class="c_xvsy"    :style="{ 'width': w_xvsy+'%'}"    >X-Y<br>{{l_xvsy}}</div>
       <div class="stacked-bar-floated" :class="c_open"    :style="{ 'width': w_open+'%'}"    >Abiertas<br>{{l_open}}</div>
-      <div class="stacked-bar-last   " :class="c_free">Free<br>{{l_free}}</div>
+      <div class="stacked-bar-last   " :class="c_free">Libres<br>{{l_free}}</div>
     </div>
     <div style="float:none; clear:both; display:block; padding-top: 0.5ch; padding-bottom: 0.5ch;">
       <!-- br -->
@@ -41,7 +41,7 @@
   </div>
 
   <!-- Navegación ---------------------------------------------------------------->
-  <input id="tab0" type="radio" name="tabs" value="1" onchange="changeTab()"><label class="tabs" for="tab0">Start</label>
+  <input id="tab0" type="radio" name="tabs" value="1" onchange="changeTab()"><label class="tabs" for="tab0">Inicio</label>
   <input id="tab1" type="radio" name="tabs" value="2" onchange="changeTab()"><label class="tabs" for="tab1">Demográficos</label>
   <input id="tab2" type="radio" name="tabs" value="3" onchange="changeTab()"><label class="tabs" for="tab2">Likerts</label>
   <input id="tab3" type="radio" name="tabs" value="4" onchange="changeTab()"><label class="tabs" for="tab3">MChoice</label>
@@ -79,7 +79,7 @@
     <br>
     <fieldset style="width: 50%">
       <legend>¿Cuántos cortes demográficos?</legend>
-      <div class="switch-toggle switch-candy">
+      <div class="switch-toggle switch-holo">
         <input id="d_0" name="z_demos" type="radio" v-model='qdemos' value=0><label for="d_0">Ninguno</label>
         <input id="d_1" name="z_demos" type="radio" v-model='qdemos' value=1><label for="d_1"> 1 </label>
         <input id="d_2" name="z_demos" type="radio" v-model='qdemos' value=2><label for="d_2"> 2 </label>
@@ -126,7 +126,7 @@
     <fieldset style="width: 50%">
       <legend>Configuración</legend>
 
-      <label class="switch-light switch-candy">
+      <label class="switch-light switch-holo">
         <input type="checkbox" v-model='flikerts'>
         <strong>¿Habrá <b>likerts</b> en esta encuesta?</strong>
         <span>
@@ -137,7 +137,7 @@
       </label>
 
       <div id="l_opt" v-if='flikerts'>  
-        <label class="switch-light switch-candy">
+        <label class="switch-light switch-holo">
           <input type="checkbox" v-model='fnsnc'>
           <strong>¿Se habilita el No Sabe / No Contesta?</strong>
           <span>
@@ -147,7 +147,7 @@
           </span>
         </label>
 
-        <label class="switch-light switch-candy">
+        <label class="switch-light switch-holo">
           <input type="checkbox" v-model='f15'>
           <strong>¿Cuál es la escala para los likerts?</strong>
           <span>
@@ -182,7 +182,7 @@
 
       <fieldset style="width: 50%">
         <legend>Configuración</legend>
-        <label class="switch-light switch-candy">
+        <label class="switch-light switch-holo">
           <input type="checkbox" v-model='flikerts2'>
           <strong>¿Habrá <b>likerts</b> adicionales en una <i><b>2da</b></i> encuesta?</strong>
           <span>
@@ -215,7 +215,7 @@
   <section id="content3" v-cloak> <!-- MChoice  ------------------------------------------>
     <fieldset style="width: 50%">
       <legend>Configuración</legend>
-      <label class="switch-light switch-candy">
+      <label class="switch-light switch-holo">
         <input type="checkbox" v-model='fmchoice'>
         <strong>¿Habrá <b>Multiple Choice</b> en esta encuesta?</strong>
         <span>
@@ -245,7 +245,7 @@
   <section id="content4" v-cloak> <!-- X vs Y -------------------------------------------->
     <fieldset style="width: 50%">
       <legend>Configuración</legend>
-      <label class="switch-light switch-candy">
+      <label class="switch-light switch-holo">
         <input type="checkbox" v-model='fxvsy'>
         <strong>¿Habrá <b>X vs Y</b> en esta encuesta?</strong>
         <span>
@@ -277,7 +277,7 @@
   <section id="content5" v-cloak> <!-- Comentarios  -------------------------------------->
     <fieldset style="width: 50%">
       <legend>Configuración</legend>
-      <label class="switch-light switch-candy">
+      <label class="switch-light switch-holo">
         <input type="checkbox" v-model='fopen'>
         <strong>¿Habrá <b>preguntas abiertas</b> en esta encuesta?</strong>
         <span>
@@ -310,7 +310,7 @@
     <fieldset style="width: 50%">
       <legend>Configuración</legend>
       <P>¿Qué medición es la que está por lanzar? </p>
-      <div class="switch-toggle switch-candy">
+      <div class="switch-toggle switch-holo">
         <input id="l_1ra" name="z_lanzar" type="radio"  v-model='AntDes' value='1'><label for="l_1ra">Primera / Unica</label>
         <input id="l_2da" name="z_lanzar" type="radio"  v-model='AntDes' value='2'><label for="l_2da">Segunda</label>
         <a></a>
@@ -343,7 +343,7 @@
     <p>Esta página le permite configurar las preguntas a realizar durante un workshop.<br><br>
       Procedimiento general de uso:</p>
     <ol>
-      <li>Cargar los datos generales de la encuesta en la solapa <b>Start</b>
+      <li>Cargar los datos generales de la encuesta en la solapa <b>Inicio</b>
         <ul>
           <li>Cliente</li>
           <li>Evento</li>
@@ -357,7 +357,8 @@
           <li><b>X vs Y</b> - ara armar un cuadrante con dos valoraciones por pregunta/tema.</li>
           <li><b>Abiertas</b> - para preguntas con respuesta de texto.</li>
         </ul>
-        Cada sección puede habilitarse o excluirse desde la misma solapa.
+        Cada sección puede habilitarse o excluirse desde la misma solapa.<br>
+        <b>Nota:</b> Los títulos que salen en el reporte son los correspondientes a cada sección de preguntas.
       </li>
       <li>En la solapa <b>Lanzar</b>
         <ul>
@@ -382,11 +383,11 @@
     <!-- <label for="inputfn">file dialog</label> -->
     <!-- <input  id="inputfn" type="file" style="position: fixed; top: -100em">    -->
     <!-- <button id="b_load" onclick="loadJSON()" class="boton add" style="float:left; margin-left: 0;">Load</button> -->
-    <label for="inputfn" class="boton add" style="float: left; margin-left: 0;">Load</label>
+    <label for="inputfn" class="boton add" style="float: left; margin-left: 0;">Cargar</label>
     <input  id="inputfn" type="file" oninput="handleFiles(this.files)" style="position: absolute; top:-100em;" accept="application/json">
     <span>&nbsp;&nbsp;</span>
-    <button id="b_save" onclick="saveJSON()" class="boton save" style="float:left;">Save</button>
-    <button id="b_next" onclick="nextTab()"  class="boton next" style="float:right;">Next</button>
+    <button id="b_save" onclick="saveJSON()" class="boton save" style="float:left;">Guardar</button>
+    <button id="b_next" onclick="nextTab()"  class="boton next" style="float:right;">Siguiente</button>
   </div>
 </main>
 

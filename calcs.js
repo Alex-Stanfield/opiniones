@@ -95,6 +95,7 @@ function pl_likerts() {
 
 function pl_mchoice() {
     var pl = '';
+    var pmask = '';
 
     if (alldata.s_mchoice.fmchoice) {
         if (alldata.s_mchoice.data[0].valor != '') {
@@ -102,7 +103,7 @@ function pl_mchoice() {
             for (i=0; i < alldata.s_mchoice.items.length; i++) {
                 if (alldata.s_mchoice.items[i].valor != '') {
                     pl += '&' + alldata.s_mchoice.items[i].vname + '=' + encodeURIComponent(alldata.s_mchoice.items[i].valor);
-                    pmask = '&' + alldata.s_mchoice.items[i].vname + 'mask=';
+                    pmask += '&' + alldata.s_mchoice.items[i].vname + 'mask=';
                     for (j=0; j < + alldata.s_mchoice.items[i].opt.length; j++ ) {
                         if (alldata.s_mchoice.items[i].opt[j].valor != '') {
                             pl += '&' + alldata.s_mchoice.items[i].opt[j].vname + '=' + encodeURIComponent(alldata.s_mchoice.items[i].opt[j].valor);
@@ -113,7 +114,7 @@ function pl_mchoice() {
             }
         }
     }
-    pls.mchoice = pl
+    pls.mchoice = pl + pmask;
     pls._mchoice = pls.mchoice.replace(/%20/g, '+'); //encodeURIComponent(pls.mchoice).replace(/%20/g, "+");
 
     return pls._mchoice;

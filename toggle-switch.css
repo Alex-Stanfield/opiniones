@@ -83,7 +83,8 @@
    * eg. bootstrap .alert
    */
     padding: 0;
-    text-align: left; }
+    text-align: left;
+    }
   .switch-light span span {
     position: relative;
     z-index: 2;

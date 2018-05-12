@@ -171,7 +171,7 @@ function lanzar() {
         if (alldata.s_start.data[0].valor == '' ||
             alldata.s_start.data[1].valor == '' ||
             alldata.sesion == '') {
-            errmsg('"Cliente", "Evento" y "Sesión" <b>NO</b> pueden estar en blanco');
+            errmsg('"Cliente", "Evento" y "Sesión"  NO pueden estar en blanco');
         } else {
             reseterr();
             call_isgd( encodeURIComponent(pls.longurl) );
