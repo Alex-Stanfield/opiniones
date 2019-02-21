@@ -91,7 +91,7 @@
     ],
     "flikerts2":false,
     "data2":[
-        {"vname":"K", "campo": "Introducción", "valor":""}
+        {"vname":"K_", "campo": "Introducción", "valor":""}
     ],
     "items2":[
         {"vname":"K0", "campo": " 1", "valor":""}, 
